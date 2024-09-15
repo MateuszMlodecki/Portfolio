@@ -20,6 +20,7 @@ export const Sidebar = () => {
       <SideBarIcon icon={<FaEnvelope size="28" />} />
       <SideBarIcon icon={<FaFilePdf size="28" />} />
       <SideBarIcon icon={<FaFolderOpen size="28" />} />
+      <div></div>
     </div>
   );
 };
