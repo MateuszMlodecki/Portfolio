@@ -19,7 +19,7 @@ export const Sidebar = () => {
     <div
       className="fixed
       bottom-0 w-full h-20 flex flex-row justify-around
-      bg-purple-500 text-white shadow-lg
+      bg-[#1E2D24] text-white shadow-lg
       md:top-0 md:left-0 md:h-screen md:w-20 md:flex-col md:justify-start p-2 md:rounded-none sm:mx-auto z-[1000]"
     >
       <SideBarIcon icon={<FaHome size="28" />} text={iconPopUpHome} path="/" />
@@ -43,6 +43,7 @@ export const Sidebar = () => {
         text={iconPopUpProjects}
         path="/Projects"
       />
+      {/* Tu zrobić przycisk językowy */}
     </div>
   );
 };
