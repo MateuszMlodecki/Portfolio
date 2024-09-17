@@ -1,5 +1,5 @@
 import React from "react";
 
-export const cv = () => {
+export const Cv = () => {
   return <div>cv</div>;
 };

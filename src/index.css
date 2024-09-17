@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
+body {
+  height: 100%;
+}
 
 @layer components {
   .sidebar-icon {
@@ -18,4 +22,33 @@
   text-white bg-purple-600
   text-xs font-bold
   transition-all duration-100 scale-0 origin-left;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideInFromRight {
+  animation: slideInFromRight 0.5s ease-out;
+}
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideOutToRight {
+  animation: slideOutToRight 0.5s ease-out;
 }
