@@ -6,10 +6,11 @@ import {
   FaGithubSquare,
   FaInstagramSquare,
 } from "react-icons/fa";
+import photo2 from "../images/photo2.png"
 
 export const Home = () => {
   return (
-    <div className="bg-[#DDDDDD] overflow-hidden min-h-screen flex flex-col justify-start items-center p-5">
+    <div className="bg-[#DDDDDD] overflow- min-h-screen flex flex-col justify-start items-center p-5">
       {/* Logo */}
       <Box className="mb-8">
         <Typography variant="h4" /* className="text-white"*/>Logo</Typography>
@@ -34,17 +35,19 @@ export const Home = () => {
         <div className="slideInFromRight mt-8 md:mt-0 md:w-1/2 flex justify-center pb-2">
           <Avatar
             alt="Profile picture"
-            src="./Photo2.png"
+            src={photo2}
             sx={{ width: 300, height: 300, backgroundColor: "#f2f2f2f2" }}
           />
         </div>
       </div>
       {/* Sociale do poprawienia */}
-      <div className="bg-purple-800 flex flex-row w-screen justify-around">
-        <SocialIcon icon={<FaGithubSquare size="64" />} />
-        <SocialIcon icon={<FaFacebookSquare size="64" />} />
-        <SocialIcon icon={<FaInstagramSquare size="64" />} />
+      <div className="bg-purple-800  flex w-screen">
+      <div className="md:grid md:grid-cols-12 gap-2 sm:flex sm:flex-row">
+        <div className="col-start-9"><SocialIcon icon={<FaGithubSquare size="64" />} /></div>
+        <SocialIcon className="col-start-10" icon={<FaFacebookSquare size="64" />} />
+        <SocialIcon className="col-start-11" icon={<FaInstagramSquare size="64" />} />
       </div>
+    </div>
     </div>
   );
 };
