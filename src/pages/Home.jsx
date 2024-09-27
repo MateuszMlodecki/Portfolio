@@ -1,18 +1,12 @@
 import React from "react";
 import { Avatar, Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import {
-  FaFacebookSquare,
-  FaGithubSquare,
-  FaInstagramSquare,
-} from "react-icons/fa";
 
 export const Home = () => {
   return (
-    <div className="bg-[#DDDDDD] overflow-hidden min-h-screen flex flex-col justify-start items-center p-5">
+    <div className="bg-[#DDDDDD] min-h-screen flex flex-col justify-start items-center p-5">
       {/* Logo */}
       <Box className="mb-8">
-        <Typography variant="h4" /* className="text-white"*/>Logo</Typography>
+        <img src="./Logo.png" alt="Logo" />
       </Box>
       {/* Avatar i tekst */}
       <div className="flex flex-col-reverse items-center md:flex-row md:justify-between md:items-start w-full max-w-4xl">
@@ -21,13 +15,17 @@ export const Home = () => {
           <Typography
             variant="body1"
             className="slideInFromLeft text-center md:text-left max-w-lg"
+            sx={{
+              fontFamily: "Josephine Sans",
+              fontSize: 24,
+            }}
           >
-            Hello, I'm Mateusz, a warehouse worker with five years of
-            experience, aspiring to become a programmer. My passion for
-            problem-solving and coding sparked through self-taught online
-            courses. Now, after work, I'm dedicated to mastering HTML5, CSS, and
-            JavaScript, driven by the belief that determination and discipline
-            will lead me to a successful career in IT.
+            Cześć, jestem Mateusz, pracownik magazynu z pięcioletnim
+            doświadczeniem, aspirujący do zostania programistą. Moja pasja do
+            rozwiązywania problemów i programowania narodziła się dzięki
+            samodzielnie przerabianym kursom online. Obecnie, po pracy,
+            poświęcam się nauce HTML5, CSS i JavaScript, wierząc, że
+            determinacja i dyscyplina doprowadzą mnie do udanej kariery w IT.
           </Typography>
         </div>
         {/* Avatar */}
@@ -39,21 +37,10 @@ export const Home = () => {
           />
         </div>
       </div>
-      {/* Sociale do poprawienia */}
-      <div className="bg-purple-800 flex flex-row w-screen justify-around">
-        <SocialIcon icon={<FaGithubSquare size="64" />} />
-        <SocialIcon icon={<FaFacebookSquare size="64" />} />
-        <SocialIcon icon={<FaInstagramSquare size="64" />} />
+      {/* Fotosection */}
+      <div className="p-10">
+        <img src="./homepage.jpg" alt="" style={{ width: 993 }} />
       </div>
     </div>
   );
 };
-
-const SocialIcon = ({ icon, text, path }) => (
-  <Link to={path}>
-    <div>
-      {icon}
-      <span>{text}</span>
-    </div>
-  </Link>
-);
