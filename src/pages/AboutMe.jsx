@@ -81,15 +81,35 @@ export const AboutMe = () => {
             </Typography>
             <Typography>
               Prawo jazdy kat. B
-              <ProgressBar targetValue={100} speed={9} />
+              <ProgressBar targetValue={100} speed={3} />
+            </Typography>
+            <Typography>
+              Komunikatywność
+              <ProgressBar targetValue={100} speed={6} />
             </Typography>
           </div>
         </div>
       </div>
       {/* Zainteresowania */}
       <div className="p-5">
-        <b>Zainteresowania:</b>
-        <div className="grid"></div>
+        <b>Co mnie interesuje:</b>
+        <div className="grid p-5">
+          <Typography>- Produkty Apple</Typography>
+          <Typography>- Programowanie</Typography>
+          <Typography>- Gotowanie</Typography>
+          <Typography>- Japońska motoryzacja</Typography>
+          <Typography>- Rozwój osobisty i poszerzanie horyzontów</Typography>
+        </div>
+        {/* Sociale */}
+        <div>
+          <b>Moje sociale:</b>
+        </div>
+        <div className="grid grid-cols-3">
+          {/* placeholdery */}
+          <div>F</div>
+          <div>GitHub</div>
+          <div>Instagram</div>
+        </div>
       </div>
       <div className="pb-14"></div>
     </div>
