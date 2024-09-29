@@ -1,6 +1,11 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { useProgressAnimation } from "../hooks/ProgressAnimation";
+import {
+  FaSquareFacebook,
+  FaSquareGithub,
+  FaSquareInstagram,
+} from "react-icons/fa6";
 
 function ProgressBar({ targetValue, speed }) {
   const progress = useProgressAnimation(targetValue, speed);
@@ -11,6 +16,12 @@ function ProgressBar({ targetValue, speed }) {
     </div>
   );
 }
+
+const SocialIcon = ({ icon, path }) => (
+  <a href={path} target="_blank" rel="noopener noreferrer">
+    <div className="text-6xl md:text-8xl">{icon}</div>
+  </a>
+);
 
 export const AboutMe = () => {
   return (
@@ -104,11 +115,26 @@ export const AboutMe = () => {
         <div>
           <b>Moje sociale:</b>
         </div>
-        <div className="grid grid-cols-3">
-          {/* placeholdery */}
-          <div>F</div>
-          <div>GitHub</div>
-          <div>Instagram</div>
+        <div className="flex">
+          <div>
+            <SocialIcon
+              path={"https://www.facebook.com/profile.php?id=100003395366627"}
+              icon={<FaSquareFacebook />}
+            />
+          </div>
+
+          <div>
+            <SocialIcon
+              path={"https://www.instagram.com/mateusz_mlodecki"}
+              icon={<FaSquareInstagram />}
+            />
+          </div>
+          <div>
+            <SocialIcon
+              path={"https://github.com/MateuszMlodecki"}
+              icon={<FaSquareGithub />}
+            />
+          </div>
         </div>
       </div>
       <div className="pb-14"></div>
