@@ -1,13 +1,14 @@
 import React from "react";
 import { Avatar, Box, Typography } from "@mui/material";
 import profilepic from "../images/avatar.png";
+import Logo from "../images/Logo.png";
 
 export const Home = () => {
   return (
     <div className="bg-[#DDDDDD] min-h-screen flex flex-col justify-start items-center p-5">
       {/* Logo */}
       <Box className="mb-8">
-        <img src="./Logo.png" alt="Logo" />
+        <img src={Logo} alt="Logo" />
       </Box>
       {/* Avatar i tekst */}
       <div className="flex flex-col-reverse items-center md:flex-row md:justify-between md:items-start w-full max-w-4xl">
