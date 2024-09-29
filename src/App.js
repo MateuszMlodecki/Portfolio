@@ -18,12 +18,12 @@ function App() {
       <Sidebar />
       <div className="md:ml-20 p-0">
         <Routes>
-          <Route path="/portfolio" element={<Home />} />
+          <Route path="/Portfolio" element={<Home />} />
           <Route path="/About" element={<AboutMe />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Cv" element={<Cv />} />
           <Route path="/Projects" element={<Projects />} />
-          <Route path="*" element={<Navigate to="/portfolio" />} />
+          <Route path="*" element={<Navigate to="/Portfolio" />} />
         </Routes>
       </div>
     </Router>
