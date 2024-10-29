@@ -32,7 +32,7 @@ export const Home = () => {
             pracy!
           </Typography>
         </div>
-        {/* Avvatar */}
+        {/* Avatar */}
         <div className="slideInFromRight mt-8 md:mt-0 md:w-1/2 flex justify-center pb-2">
           <Avatar
             alt="Profile picture"
