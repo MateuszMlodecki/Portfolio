@@ -1,35 +1,64 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box, Grid, Typography, LinearProgress } from "@mui/material";
 import { useProgressAnimation } from "../hooks/ProgressAnimation";
-import {
-  FaSquareFacebook,
-  FaSquareGithub,
-  FaSquareInstagram,
-} from "react-icons/fa6";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function ProgressBar({ targetValue, speed }) {
   const progress = useProgressAnimation(targetValue, speed);
 
   return (
-    <div>
-      <progress value={progress} max={100} />
-    </div>
+    <Box sx={{ width: "100%", mt: 1 }}>
+      <LinearProgress variant="determinate" value={progress} />
+    </Box>
   );
 }
 
-const SocialIcon = ({ icon, path }) => (
-  <a href={path} target="_blank" rel="noopener noreferrer">
-    <div className="text-6xl md:text-8xl">{icon}</div>
-  </a>
-);
-
 export const AboutMe = () => {
+  const skills = [
+    { skill: "HTML5", target: 99, speed: 10 },
+    { skill: "CSS3", target: 80, speed: 6 },
+    { skill: "JavaScript", target: 50, speed: 4 },
+    { skill: "React.JS", target: 50, speed: 5 },
+    { skill: "Tailwind CSS", target: 65, speed: 3 },
+    { skill: "Git i Github", target: 45, speed: 10 },
+    { skill: "Responsywny Web Design", target: 80, speed: 9 },
+    { skill: "Zarządzanie stanem (Redux, Context API)", target: 10, speed: 9 },
+    { skill: "API (REST, GraphQL)", target: 25, speed: 9 },
+  ];
+
+  const additionalSkills = [
+    { skill: "Język angielski B1", target: 50, speed: 9 },
+    { skill: "Prawo jazdy kat. B", target: 100, speed: 3 },
+    { skill: "Komunikatywność", target: 100, speed: 6 },
+  ];
+
+  const interests = [
+    "Produkty Apple",
+    "Programowanie",
+    "Gotowanie",
+    "Japońska motoryzacja",
+    "Rozwój osobisty i poszerzanie horyzontów",
+  ];
+
   return (
-    <div className="bg-[#DDDDDD] min-h-screen p-8">
+    <Box
+      sx={{
+        bgcolor: "#DDDDDD",
+        minHeight: "100vh",
+        padding: "2rem",
+        fontFamily: "Josephine sans",
+      }}
+    >
       {/* Main story */}
-      <div className="text-2xl">O mnie</div>
-      <br />
-      <Typography>
+      <Typography
+        sx={{ fontSize: "24px", fontWeight: "bold", paddingY: "1rem" }}
+      >
+        O mnie
+      </Typography>
+      <Typography sx={{ marginBottom: 2 }}>
         Cześć, jestem Mateusz, pracownik magazynu z pięcioletnim doświadczeniem,
         aspirujący do zostania programistą. Moja pasja do rozwiązywania
         problemów i programowania narodziła się dzięki samodzielnie przerabianym
@@ -37,107 +66,143 @@ export const AboutMe = () => {
         JavaScript, wierząc, że determinacja i dyscyplina doprowadzą mnie do
         udanej kariery w IT.
       </Typography>
+
       {/* Skills */}
+      <Grid container spacing={2} sx={{ paddingY: "1.25rem" }}>
+        {/* Learning Technologies */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ padding: 2, border: "1px solid black", borderRadius: 1 }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
+            Tych technologii się uczę:
+          </Typography>
+          {skills.map(({ skill, target, speed }) => (
+            <Box key={skill} sx={{ marginBottom: 2 }}>
+              <Typography>{skill}</Typography>
+              <ProgressBar targetValue={target} speed={speed} />
+            </Box>
+          ))}
+        </Grid>
 
-      <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 py-5">
-        <div className="mainskills p-5">
-          <b>Tych technologii się uczę:</b>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 h-full border-black border-solid border-2 p-3 mx-auto">
-            <Typography>
-              HTML5
-              <ProgressBar targetValue={99} speed={10} />
-            </Typography>
-            <Typography>
-              CSS3
-              <ProgressBar targetValue={80} speed={6} />
-            </Typography>
-            <Typography>
-              JavaScript
-              <ProgressBar targetValue={50} speed={4} />
-            </Typography>
-            <Typography>
-              React.JS
-              <ProgressBar targetValue={50} speed={5} />
-            </Typography>
-            <Typography>
-              Tailwind CSS
-              <ProgressBar targetValue={65} speed={3} />
-            </Typography>
-            <Typography>
-              Git i Github
-              <ProgressBar targetValue={45} speed={10} />
-            </Typography>
-            <Typography>
-              Responsywny
-              <br /> Web Design
-              <ProgressBar targetValue={80} speed={9} />
-            </Typography>
-            <Typography className="text-pretty">
-              Zarządzanie stanem <br />
-              (Redux, Context API)
-              <ProgressBar targetValue={10} speed={9} />
-            </Typography>
-            <Typography>
-              API (REST, GraphQL)
-              <ProgressBar targetValue={25} speed={9} />
-            </Typography>
-          </div>
-        </div>
-        <div className="subskills p-5">
-          <b>Umiejętności które również posiadam:</b>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 border-black border-solid border-2 h-full p-3">
-            <Typography>
-              Język angielski B1
-              <ProgressBar targetValue={50} speed={9} />
-            </Typography>
-            <Typography>
-              Prawo jazdy kat. B
-              <ProgressBar targetValue={100} speed={3} />
-            </Typography>
-            <Typography>
-              Komunikatywność
-              <ProgressBar targetValue={100} speed={6} />
-            </Typography>
-          </div>
-        </div>
-      </div>
-      {/* Zainteresowania */}
-      <div className="p-5">
-        <b>Co mnie interesuje:</b>
-        <div className="grid p-5">
-          <Typography>- Produkty Apple</Typography>
-          <Typography>- Programowanie</Typography>
-          <Typography>- Gotowanie</Typography>
-          <Typography>- Japońska motoryzacja</Typography>
-          <Typography>- Rozwój osobisty i poszerzanie horyzontów</Typography>
-        </div>
-        {/* Sociale */}
-        <div>
-          <b>Moje sociale:</b>
-        </div>
-        <div className="flex">
-          <div>
-            <SocialIcon
-              path={"https://www.facebook.com/profile.php?id=100003395366627"}
-              icon={<FaSquareFacebook />}
-            />
-          </div>
+        {/* Additional Skills */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ padding: 2, border: "1px solid black", borderRadius: 1 }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
+            Umiejętności które również posiadam:
+          </Typography>
+          {additionalSkills.map(({ skill, target, speed }) => (
+            <Box key={skill} sx={{ marginBottom: 2 }}>
+              <Typography>{skill}</Typography>
+              <ProgressBar targetValue={target} speed={speed} />
+            </Box>
+          ))}
+        </Grid>
+      </Grid>
 
-          <div>
-            <SocialIcon
-              path={"https://www.instagram.com/mateusz_mlodecki"}
-              icon={<FaSquareInstagram />}
-            />
-          </div>
-          <div>
-            <SocialIcon
-              path={"https://github.com/MateuszMlodecki"}
-              icon={<FaSquareGithub />}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="pb-14"></div>
-    </div>
+      {/* Interests */}
+      <Box sx={{ padding: 2 }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+          Co mnie interesuje:
+        </Typography>
+        <Box sx={{ marginLeft: 2, marginTop: 1 }}>
+          {interests.map((interest, index) => (
+            <Typography key={index}>- {interest}</Typography>
+          ))}
+        </Box>
+      </Box>
+
+      {/* Social Links */}
+      <Typography variant="h6" sx={{ padding: 2, fontWeight: "bold" }}>
+        Moje sociale:
+      </Typography>
+      <Box sx={{ display: "flex" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "96px",
+            height: "96px",
+            background: "#1877F2", // kolor tła dla Facebooka
+            borderRadius: "15%",
+          }}
+        >
+          <FacebookIcon
+            sx={{
+              fontSize: "80px",
+              color: "white",
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "96px",
+            height: "96px",
+            background: "linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045)", // gradient dla Instagrama
+            borderRadius: "15%",
+            marginLeft: 1,
+          }}
+        >
+          <InstagramIcon
+            sx={{
+              fontSize: "80px",
+              color: "white",
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "96px",
+            height: "96px",
+            background: "#0A66C2", // kolor tła dla LinkedIn
+            borderRadius: "15%",
+            marginLeft: 1,
+          }}
+        >
+          <LinkedInIcon
+            sx={{
+              fontSize: "80px",
+              color: "white",
+            }}
+          />
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "96px",
+            height: "96px",
+            background: "#333", // kolor tła dla GitHub (ciemny szary lub czarny)
+            borderRadius: "15%",
+            marginLeft: 1,
+          }}
+        >
+          <GitHubIcon
+            sx={{
+              fontSize: "80px",
+              color: "white",
+            }}
+          />
+        </Box>
+      </Box>
+      <Box sx={{ marginBottom: "140px" }}></Box>
+    </Box>
   );
 };

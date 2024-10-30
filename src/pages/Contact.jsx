@@ -124,6 +124,7 @@ export const Contact = () => {
           direction="column"
           minWidth="220px"
           marginBottom="auto"
+          paddingBottom="140px"
         >
           <Link
             href="https://wa.me/qr/YUFDAGMVQ6GMD1"
