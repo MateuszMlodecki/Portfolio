@@ -242,7 +242,7 @@ export const AboutMe = () => {
           </Box>
         </a>
       </Box>
-      <Box sx={{ marginBottom: { xs: "100px", md: 0 } }}></Box>
+      <Box sx={{ marginBottom: { xs: "140px", md: 0 } }}></Box>
     </Box>
   );
 };
