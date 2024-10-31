@@ -30,22 +30,22 @@ export const Sidebar = () => {
       <SideBarIcon
         icon={<FaUser size="28" />}
         text={iconPopUpAbout}
-        path="/About"
+        path="Portfolio/About"
       />
       <SideBarIcon
         icon={<FaEnvelope size="28" />}
         text={iconPopUpContact}
-        path="/Contact"
+        path="Portfolio/Contact"
       />
       <SideBarIcon
         icon={<FaFilePdf size="28" />}
         text={iconPopUpMyCV}
-        path="/Cv"
+        path="Portfolio/Cv"
       />
       <SideBarIcon
         icon={<FaFolderOpen size="28" />}
         text={iconPopUpProjects}
-        path="/Projects"
+        path="Portfolio/Projects"
       />
     </div>
   );
