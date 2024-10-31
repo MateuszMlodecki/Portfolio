@@ -20,8 +20,6 @@ export const Contact = () => {
         Skontaktuj się ze mną:
       </Typography>
       <Grid
-        marginLeft="50px"
-        marginRight="50px"
         container
         justifyContent="center"
         alignItems="center"
@@ -34,6 +32,7 @@ export const Contact = () => {
           alignItems="center"
           direction="column"
           minWidth="220px"
+          marginY="auto"
         >
           <Link href="tel:+48790277760" underline="none" color="black">
             <PhoneIphoneIcon
@@ -60,6 +59,7 @@ export const Contact = () => {
           alignItems="center"
           direction="column"
           minWidth="220px"
+          marginY="auto"
         >
           <Link
             href="mailto:mateuszmlodecki@icloud.com"
@@ -95,7 +95,7 @@ export const Contact = () => {
           alignItems="center"
           direction="column"
           minWidth="220px"
-          marginBottom="auto"
+          marginY="auto"
         >
           <Link
             href="https://www.linkedin.com/in/mateusz-m%C5%82odecki-621104328/"
@@ -123,8 +123,7 @@ export const Contact = () => {
           alignItems="center"
           direction="column"
           minWidth="220px"
-          marginBottom="auto"
-          paddingBottom="140px"
+          marginY="auto"
         >
           <Link
             href="https://wa.me/qr/YUFDAGMVQ6GMD1"

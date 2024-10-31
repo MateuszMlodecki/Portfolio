@@ -122,85 +122,124 @@ export const AboutMe = () => {
       <Typography variant="h6" sx={{ padding: 2, fontWeight: "bold" }}>
         Moje sociale:
       </Typography>
-      <Box sx={{ display: "flex" }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "96px",
-            height: "96px",
-            background: "#1877F2", // kolor tła dla Facebooka
-            borderRadius: "15%",
-          }}
+      <Box
+        sx={{
+          display: "flex",
+          direction: "row",
+          flexWrap: "wrap",
+          justifyContent: {
+            xs: "center",
+            sm: "center",
+            md: "flex-start",
+            lg: "flex-start",
+            xl: "flex-start",
+          },
+        }}
+      >
+        <a
+          href="https://www.facebook.com/profile.php?id=100003395366627"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
         >
-          <FacebookIcon
+          <Box
             sx={{
-              fontSize: "80px",
-              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "96px",
+              height: "96px",
+              background: "#1877F2",
+              borderRadius: "15%",
+              margin: "5px",
             }}
-          />
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "96px",
-            height: "96px",
-            background: "linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045)", // gradient dla Instagrama
-            borderRadius: "15%",
-            marginLeft: 1,
-          }}
+          >
+            <FacebookIcon
+              sx={{
+                fontSize: "80px",
+                color: "white",
+              }}
+            />
+          </Box>
+        </a>
+        <a
+          href="https://www.instagram.com/mateusz_mlodecki/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
         >
-          <InstagramIcon
+          <Box
             sx={{
-              fontSize: "80px",
-              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "96px",
+              height: "96px",
+              background: "linear-gradient(45deg, #833AB4, #FD1D1D, #FCB045)",
+              borderRadius: "15%",
+              margin: "5px",
             }}
-          />
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "96px",
-            height: "96px",
-            background: "#0A66C2", // kolor tła dla LinkedIn
-            borderRadius: "15%",
-            marginLeft: 1,
-          }}
+          >
+            <InstagramIcon
+              sx={{
+                fontSize: "80px",
+                color: "white",
+              }}
+            />
+          </Box>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/mateusz-m%C5%82odecki-621104328/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
         >
-          <LinkedInIcon
+          <Box
             sx={{
-              fontSize: "80px",
-              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "96px",
+              height: "96px",
+              background: "#0A66C2",
+              borderRadius: "15%",
+              margin: "5px",
             }}
-          />
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "96px",
-            height: "96px",
-            background: "#333", // kolor tła dla GitHub (ciemny szary lub czarny)
-            borderRadius: "15%",
-            marginLeft: 1,
-          }}
+          >
+            <LinkedInIcon
+              sx={{
+                fontSize: "80px",
+                color: "white",
+              }}
+            />
+          </Box>
+        </a>
+        <a
+          href="https://github.com/MateuszMlodecki"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
         >
-          <GitHubIcon
+          <Box
             sx={{
-              fontSize: "80px",
-              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "96px",
+              height: "96px",
+              background: "#333",
+              borderRadius: "15%",
+              margin: "5px",
             }}
-          />
-        </Box>
+          >
+            <GitHubIcon
+              sx={{
+                fontSize: "80px",
+                color: "white",
+              }}
+            />
+          </Box>
+        </a>
       </Box>
       <Box sx={{ marginBottom: "140px" }}></Box>
     </Box>
