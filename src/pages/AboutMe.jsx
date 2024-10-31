@@ -23,6 +23,7 @@ export const AboutMe = () => {
     { skill: "JavaScript", target: 50, speed: 4 },
     { skill: "React.JS", target: 50, speed: 5 },
     { skill: "Tailwind CSS", target: 65, speed: 3 },
+    { skill: "Material UI", target: 70, speed: 2 },
     { skill: "Git i Github", target: 45, speed: 10 },
     { skill: "Responsywny Web Design", target: 80, speed: 9 },
     { skill: "Zarządzanie stanem (Redux, Context API)", target: 10, speed: 9 },

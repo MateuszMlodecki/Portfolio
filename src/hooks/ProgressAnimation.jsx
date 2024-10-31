@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useProgressAnimation(targetValue, speed = 50) {
+export const useProgressAnimation = (targetValue, speed = 50) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -18,4 +18,4 @@ export function useProgressAnimation(targetValue, speed = 50) {
   }, [targetValue, speed]);
 
   return progress;
-}
+};

@@ -5,21 +5,49 @@ import Logo from "../images/Logo.png";
 
 export const Home = () => {
   return (
-    <div className="bg-[#DDDDDD] min-h-screen flex flex-col justify-start items-center p-5">
-      {/* Logo */}
-      <Box className="mb-8">
-        <img src={Logo} alt="Logo" />
+    <Box
+      sx={{
+        backgroundColor: "#DDDDDD",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        p: 5,
+      }}
+    >
+      <Box sx={{ mb: { xs: 0, md: 6 } }}>
+        <img
+          src={Logo}
+          alt="Logo"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
       </Box>
-      {/* Avatar i tekst */}
-      <div className="flex flex-col-reverse items-center md:flex-row md:justify-between md:items-start w-full max-w-4xl">
-        {/* Tekst */}
-        <div className="md:w-1/2 p-4 text-center md:text-left flex mt-10">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column-reverse", md: "row" },
+          justifyContent: { md: "space-between" },
+          alignItems: { xs: "center", md: "flex-start" },
+          width: "100%",
+          maxWidth: "960px",
+        }}
+      >
+        <Box
+          sx={{
+            flex: "1",
+            p: 4,
+            textAlign: { xs: "center", md: "left" },
+            mt: { xs: 10, md: 0 },
+          }}
+        >
           <Typography
             variant="body1"
-            className="slideInFromLeft text-center md:text-left max-w-lg"
             sx={{
               fontFamily: "Josephine Sans",
-              fontSize: 24,
+              fontSize: "24px",
+              maxWidth: "600px",
+              marginX: "auto",
             }}
           >
             Cześć! Mam na imię Mateusz, jestem początkującym website developerem
@@ -31,17 +59,28 @@ export const Home = () => {
             moich dotychczasowych osiągnięć. Zapraszam do obejrzenia mojej
             pracy!
           </Typography>
-        </div>
-        {/* Avatar */}
-        <div className="slideInFromRight mt-8 md:mt-0 md:w-1/2 flex justify-center pb-2">
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: { xs: 8, md: 0 },
+            pb: 2,
+            flex: "1",
+          }}
+        >
           <Avatar
             alt="Profile picture"
             src={profilepic}
-            sx={{ width: 300, height: 300, backgroundColor: "#f2f2f2f2" }}
+            sx={{
+              width: 300,
+              height: 300,
+              backgroundColor: "#f2f2f2",
+            }}
           />
-        </div>
-      </div>
-      <div className="pb-14"></div>
-    </div>
+        </Box>
+      </Box>
+      <Box sx={{ pb: { xs: 14, md: 0 } }} />
+    </Box>
   );
 };
