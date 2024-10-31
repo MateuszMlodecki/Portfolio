@@ -80,7 +80,7 @@ export const Home = () => {
           />
         </Box>
       </Box>
-      <Box sx={{ pb: { xs: 14, md: 0 } }} />
+      <Box sx={{ marginBottom: { xs: 14, md: 0 } }} />
     </Box>
   );
 };

@@ -146,6 +146,7 @@ export const Contact = () => {
           </Link>
         </Grid>
       </Grid>
+      <Box sx={{ marginBottom: { xs: 14, md: 0 } }} />
     </Box>
   );
 };
