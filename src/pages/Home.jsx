@@ -64,7 +64,7 @@ export const Home = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mt: { xs: 8, md: 0 },
+            mt: { xs: 8 },
             pb: 2,
             flex: "1",
           }}
@@ -73,8 +73,8 @@ export const Home = () => {
             alt="Profile picture"
             src={profilepic}
             sx={{
-              width: 300,
-              height: 300,
+              width: { xs: 250, md: 300 },
+              height: { xs: 250, md: 300 },
               backgroundColor: "#f2f2f2",
             }}
           />
