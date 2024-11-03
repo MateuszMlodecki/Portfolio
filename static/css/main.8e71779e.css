@@ -1,2 +1,0 @@
-@tailwind base;@tailwind components;@tailwind utilities;body,html{height:100%}@keyframes slideInFromRight{0%{opacity:0;transform:translateX(100%)}to{opacity:1;transform:translateX(0)}}.slideInFromRight{animation:slideInFromRight .5s ease-out}@keyframes slideOutToRight{0%{opacity:0;transform:translateX(-100%)}to{opacity:1;transform:translateX(0)}}.slideInFromLeft{animation:slideOutToRight .5s ease-out}
-/*# sourceMappingURL=main.8e71779e.css.map*/
