@@ -1,9 +1,47 @@
-import { Grid2 as Grid, Typography, Link, Box } from "@mui/material";
+import {
+  Grid2 as Grid,
+  Typography,
+  Link,
+  Box,
+  IconButton,
+} from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
+
+const ContactItem = ({ href, icon: Icon, label, info }) => (
+  <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    direction="column"
+    minWidth="220px"
+    marginTop="30px"
+  >
+    <Link href={href} underline="none" color="black" target="_blank">
+      <IconButton
+        sx={{
+          color: "#f2f2f2",
+          backgroundColor: "#1E2D24",
+          "&:hover": { backgroundColor: "#3c4a40" },
+          borderRadius: "20%",
+          padding: "10px",
+          fontSize: "50px",
+        }}
+      >
+        <Icon fontSize="large" />
+      </IconButton>
+    </Link>
+    <Typography>{label}</Typography>
+    {info && (
+      <Link href={href} underline="none" color="black">
+        {info}
+      </Link>
+    )}
+  </Grid>
+);
 
 export const Contact = () => {
   return (
@@ -22,129 +60,32 @@ export const Contact = () => {
       <Grid
         container
         justifyContent="center"
-        alignItems="center"
+        alignItems={{ xs: "center", sm: "flex-start" }}
         direction={{ xs: "column", sm: "row" }}
         gap="10px"
       >
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          direction="column"
-          minWidth="220px"
-          marginY="auto"
-        >
-          <Link href="tel:+48790277760" underline="none" color="black">
-            <PhoneIphoneIcon
-              sx={{
-                borderRadius: "20%",
-                padding: "10px",
-                margin: "10px",
-                display: "inline-block",
-                color: "#f2f2f2",
-                fontSize: "50px",
-                background: "#1E2D24",
-              }}
-            />
-          </Link>
-
-          <Typography>Telefon</Typography>
-          <Link href="tel:+48790277760" underline="none" color="black">
-            +48 790 277 760
-          </Link>
-        </Grid>
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          direction="column"
-          minWidth="220px"
-          marginY="auto"
-        >
-          <Link
-            href="mailto:mateuszmlodecki@icloud.com"
-            underline="none"
-            color="black"
-            target="_blank"
-          >
-            <EmailIcon
-              sx={{
-                color: "#f2f2f2",
-                borderRadius: "20%",
-                margin: "10px",
-                padding: "10px",
-                display: "inline-block",
-                fontSize: "50px",
-                background: "#1E2D24",
-              }}
-            />
-          </Link>
-          <Typography>E-mail</Typography>
-          <Typography
-            href="mailto:mateuszmlodecki@icloud.com"
-            underline="none"
-            color="black"
-            target="_blank"
-          >
-            mateuszmlodecki@icloud.com
-          </Typography>
-        </Grid>
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          direction="column"
-          minWidth="220px"
-          marginY="auto"
-        >
-          <Link
-            href="https://www.linkedin.com/in/mateusz-m%C5%82odecki-621104328/"
-            underline="none"
-            color="black"
-            target="_blank"
-          >
-            <LinkedInIcon
-              sx={{
-                color: "#f2f2f2",
-                borderRadius: "20%",
-                margin: "10px",
-                padding: "10px",
-                display: "inline-block",
-                fontSize: "50px",
-                background: "#1E2D24",
-              }}
-            />
-            <Typography>LinkedIn</Typography>
-          </Link>
-        </Grid>
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          direction="column"
-          minWidth="220px"
-          marginY="auto"
-        >
-          <Link
-            href="https://wa.me/qr/YUFDAGMVQ6GMD1"
-            underline="none"
-            color="black"
-            target="_blank"
-          >
-            <WhatsAppIcon
-              sx={{
-                color: "#f2f2f2",
-                borderRadius: "20%",
-                margin: "10px",
-                padding: "10px",
-                display: "inline-block",
-                fontSize: "50px",
-                background: "#1E2D24",
-              }}
-            />
-            <Typography>WhatsApp</Typography>
-          </Link>
-        </Grid>
+        <ContactItem
+          href="tel:+48790277760"
+          icon={PhoneIphoneIcon}
+          label="Telefon"
+          info="+48 790 277 760"
+        />
+        <ContactItem
+          href="mailto:mateuszmlodecki@icloud.com"
+          icon={EmailIcon}
+          label="E-mail"
+          info="mateuszmlodecki@icloud.com"
+        />
+        <ContactItem
+          href="https://www.linkedin.com/in/mateusz-m%C5%82odecki-621104328/"
+          icon={LinkedInIcon}
+          label="LinkedIn"
+        />
+        <ContactItem
+          href="https://wa.me/qr/YUFDAGMVQ6GMD1"
+          icon={WhatsAppIcon}
+          label="WhatsApp"
+        />
       </Grid>
       <Box sx={{ paddingBottom: { xs: "140px", md: 0 } }} />
     </Box>

@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "./components/SidebarRefactor";
 import { Home } from "./pages/Home";
 import { AboutMe } from "./pages/AboutMe";
 import { Contact } from "./pages/Contact";
