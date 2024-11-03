@@ -11,12 +11,18 @@ import { AboutMe } from "./pages/AboutMe";
 import { Contact } from "./pages/Contact";
 import { Cv } from "./pages/Cv";
 import { Projects } from "./pages/Projects";
+import { Box } from "@mui/material";
 
 function App() {
   return (
     <Router>
       <Sidebar />
-      <div className="md:ml-20 p-0">
+
+      <Box
+        sx={{
+          marginLeft: { xs: 0, md: "80px" },
+        }}
+      >
         <Routes>
           <Route path="/Portfolio" element={<Home />} />
           <Route path="/About" element={<AboutMe />} />
@@ -25,7 +31,7 @@ function App() {
           <Route path="/Projects" element={<Projects />} />
           <Route path="*" element={<Navigate to="/Portfolio" />} />
         </Routes>
-      </div>
+      </Box>
     </Router>
   );
 }

@@ -53,7 +53,6 @@ export const AboutMe = () => {
         fontFamily: "Josephine sans",
       }}
     >
-      {/* Main story */}
       <Typography
         sx={{ fontSize: "24px", fontWeight: "bold", paddingY: "1rem" }}
       >
@@ -67,10 +66,7 @@ export const AboutMe = () => {
         JavaScript, wierząc, że determinacja i dyscyplina doprowadzą mnie do
         udanej kariery w IT.
       </Typography>
-
-      {/* Skills */}
       <Grid container spacing={2} sx={{ paddingY: "1.25rem" }}>
-        {/* Learning Technologies */}
         <Grid
           item
           xs={12}
@@ -87,8 +83,6 @@ export const AboutMe = () => {
             </Box>
           ))}
         </Grid>
-
-        {/* Additional Skills */}
         <Grid
           item
           xs={12}
@@ -106,8 +100,6 @@ export const AboutMe = () => {
           ))}
         </Grid>
       </Grid>
-
-      {/* Interests */}
       <Box sx={{ padding: 2 }}>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Co mnie interesuje:
@@ -118,8 +110,6 @@ export const AboutMe = () => {
           ))}
         </Box>
       </Box>
-
-      {/* Social Links */}
       <Typography variant="h6" sx={{ padding: 2, fontWeight: "bold" }}>
         Moje sociale:
       </Typography>

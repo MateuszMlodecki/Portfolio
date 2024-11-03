@@ -54,10 +54,10 @@ const SideBarIcon = ({ icon, text, path }) => (
         sx={{
           m: 1,
           color: "inherit",
-          transition: "all 750ms",
+          transition: "scale 750ms",
           "&:hover": {
             bgcolor: "#3c4a40",
-            scale: "1.5",
+            scale: "1.25",
           },
         }}
       >
