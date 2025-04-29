@@ -1,17 +1,19 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.9b0d99c9.css",
-    "main.js": "/Portfolio/static/js/main.5fb06be5.js",
+    "main.js": "/Portfolio/static/js/main.4c13c9d1.js",
     "static/js/453.1407b060.chunk.js": "/Portfolio/static/js/453.1407b060.chunk.js",
     "static/media/avatar.png": "/Portfolio/static/media/avatar.fd156286c639faa80a57.png",
+    "static/media/BankingAppDashboard.png": "/Portfolio/static/media/BankingAppDashboard.1bf5c8427450331382b1.png",
+    "static/media/BankingAppHomepage.png": "/Portfolio/static/media/BankingAppHomepage.bbc60195bddd810aee48.png",
     "static/media/Logo.png": "/Portfolio/static/media/Logo.955fe3352d86740a1f57.png",
     "index.html": "/Portfolio/index.html",
     "main.9b0d99c9.css.map": "/Portfolio/static/css/main.9b0d99c9.css.map",
-    "main.5fb06be5.js.map": "/Portfolio/static/js/main.5fb06be5.js.map",
+    "main.4c13c9d1.js.map": "/Portfolio/static/js/main.4c13c9d1.js.map",
     "453.1407b060.chunk.js.map": "/Portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9b0d99c9.css",
-    "static/js/main.5fb06be5.js"
+    "static/js/main.4c13c9d1.js"
   ]
 }
