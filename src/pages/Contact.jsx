@@ -21,6 +21,7 @@ const ContactItem = ({ href, icon: Icon, label, info, iconColor, tooltip }) => (
       },
       width: { xs: '100%', md: '260px', lg: '300px' }, // Target 300px on lg
       maxWidth: { xs: '390px', lg: '330px' }, // Scaled proportionally
+      borderRadius: 2,
     }}
   >
     <Icon sx={{ fontSize: 75, color: iconColor, mb: 1.5 }} /> {/* Scaled from 57.5 */}
@@ -86,7 +87,7 @@ export const Contact = () => {
         justifyContent: 'center',
         padding: 6, // Scaled from 4.6
         minHeight: '100vh',
-        bgcolor: '#f5f5f5',
+        bgcolor: '#DDDDDD',
       }}
     >
       <Typography

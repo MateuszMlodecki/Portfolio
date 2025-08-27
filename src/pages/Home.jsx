@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Box, Typography } from '@mui/material';
+import { Avatar, Box, Typography, Paper } from '@mui/material';
 import profilepic from '../images/avatar.png';
 import Logo from '../images/Logo.png';
 
@@ -19,7 +19,7 @@ export const Home = () => {
       <Box sx={{ mb: { xs: 0, md: 6 } }}>
         <img src={Logo} alt="Logo" style={{ maxWidth: '100%', height: 'auto' }} />
       </Box>
-      <Box
+      <Paper
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column-reverse', md: 'row' },
@@ -27,6 +27,8 @@ export const Home = () => {
           alignItems: { xs: 'center', md: 'flex-start' },
           width: '100%',
           maxWidth: '960px',
+          borderRadius: 2,
+          p: 3,
         }}
       >
         <Box
@@ -68,11 +70,11 @@ export const Home = () => {
             sx={{
               width: { xs: 250, md: 300 },
               height: { xs: 250, md: 300 },
-              backgroundColor: '#f2f2f2',
+              backgroundColor: '#DDDDDD',
             }}
           />
         </Box>
-      </Box>
+      </Paper>
       <Box sx={{ paddingBottom: { xs: '140px', md: 0 } }} />
     </Box>
   );
