@@ -23,7 +23,7 @@ export const Cv = () => {
         justifyContent: 'center',
         padding: 4,
         minHeight: '100vh',
-        bgcolor: '#f5f5f5',
+        bgcolor: '#DDDDDD',
       }}
     >
       <Typography
@@ -53,6 +53,7 @@ export const Cv = () => {
               transform: 'translateY(-5px)',
               boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
             },
+            borderRadius: 2,
           }}
         >
           <FaFilePdf style={{ fontSize: 100, color: '#e53935', marginBottom: 16 }} />
@@ -94,6 +95,7 @@ export const Cv = () => {
               transform: 'translateY(-5px)',
               boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
             },
+            borderRadius: 2,
           }}
         >
           <FaFilePdf style={{ fontSize: 100, color: '#1e88e5', marginBottom: 16 }} />
