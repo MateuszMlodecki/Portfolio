@@ -7,11 +7,12 @@ import { Contact } from './pages/Contact';
 import { Cv } from './pages/Cv';
 import { Projects } from './pages/Projects';
 import { Box } from '@mui/material';
+import HomePage from './pages/Landing/HomePage';
 
 function App() {
   return (
     <Router>
-      <Sidebar />
+      {/*<Sidebar /> 
 
       <Box
         sx={{
@@ -19,15 +20,16 @@ function App() {
           paddingBottom: { xs: '50px', md: '0' },
         }}
       >
-        <Routes>
-          <Route path="/Portfolio" element={<Home />} />
-          <Route path="/About" element={<AboutMe />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Cv" element={<Cv />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="*" element={<Navigate to="/Portfolio" />} />
-        </Routes>
-      </Box>
+      */}
+      <Routes>
+        <Route path="/Portfolio" element={<Home />} />
+        <Route path="/About" element={<AboutMe />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Cv" element={<Cv />} />
+        <Route path="/Projects" element={<Projects />} />
+        <Route path="*" element={<Navigate to="/Portfolio" />} />
+        <Route path="/newportfolio" element={<HomePage />} />
+      </Routes>
     </Router>
   );
 }
