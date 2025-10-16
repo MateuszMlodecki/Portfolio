@@ -44,7 +44,7 @@ const paperStyles = {
 };
 
 // Tworzymy animowalną wersję IconButton
-const MotionIconButton = motion(IconButton);
+const MotionIconButton = motion.create(IconButton);
 
 export const NavigationSection = ({ pageBackground }) => {
   return (

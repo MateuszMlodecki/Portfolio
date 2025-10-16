@@ -176,13 +176,6 @@ export const Projects = () => {
         py: 8,
       }}
     >
-      <Typography
-        variant="h3"
-        fontWeight="bold"
-        sx={{ mb: 6, color: 'white', textShadow: '1px 1px 3px black' }}
-      >
-        Moje Projekty
-      </Typography>
       <Stack direction="column" spacing={6} sx={{ width: '100%' }}>
         {projectsData.map(project => (
           <ProjectCard key={project.id} {...project} />

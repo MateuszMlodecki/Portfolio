@@ -1,5 +1,4 @@
-import Box from '@mui/material/Box';
-import GlobalStyles from '@mui/material/GlobalStyles';
+import { Box, Typography } from '@mui/material';
 import backgroundImg from '../../background_portfolio.png';
 import { HeroSection } from './HeroSection';
 import { NavigationSection } from './NavigationSection';
@@ -21,10 +20,9 @@ const bounce = keyframes`
 
 const HomePage = () => {
   const backgroundStyleUrl = `url(${backgroundImg})`;
+
   return (
     <>
-      <GlobalStyles styles={{ html: { scrollBehavior: 'smooth' } }} />
-
       <Box
         sx={{
           position: 'fixed',
@@ -71,18 +69,26 @@ const HomePage = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              position: 'relative', // <-- KROK 1: Dodaj to, aby stać się kontekstem pozycjonowania
             }}
           >
             <HeroSection pageBackground={backgroundStyleUrl} />
+
+            {/* KROK 2: Zaktualizuj stylizację wskaźnika "Przewiń w dół" */}
             <Box
               sx={{
-                display: { xs: 'flex', lg: 'none' },
+                position: 'absolute', // Wyjmij z normalnego przepływu
+                bottom: 40, // Umieść 40px od dolnej krawędzi kontenera "home"
+                left: '50%', // Wyśrodkuj w poziomie
+                transform: 'translateX(-50%)', // Dokładne wyśrodkowanie w poziomie
+                display: { xs: 'flex', lg: 'flex' },
                 flexDirection: 'column',
                 alignItems: 'center',
                 color: 'white',
+                mx: 'auto',
                 textShadow: '0 0 5px black',
                 animation: `${bounce} 2s infinite`,
-                mt: 4,
+                // mt: 4 już nie jest potrzebne
               }}
             >
               <Box>Przewiń w dół</Box>
@@ -91,6 +97,13 @@ const HomePage = () => {
           </Box>
 
           <Box sx={{ width: '100%' }}>
+            <Typography
+              variant="h3"
+              fontWeight="bold"
+              sx={{ mb: 6, color: 'white', textShadow: '1px 1px 3px black' }}
+            >
+              Moje Projekty
+            </Typography>
             <Projects />
           </Box>
         </Box>
