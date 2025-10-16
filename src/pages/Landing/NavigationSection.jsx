@@ -3,20 +3,31 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { FaUser } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
+// Funkcja do płynnego przewijania do sekcji (bez zmian)
+const scrollToSection = id => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+};
 
 const navItems = [
-  { text: 'Strona Główna', icon: HomeIcon, link: '#home' },
-  { text: 'Projekty', icon: WorkOutlineIcon, link: '#projects' },
-  { text: 'O mnie', icon: FaUser, link: '#about' },
-  { text: 'Kontakt', icon: MailOutlineIcon, link: '#contact' },
+  { text: 'Strona Główna', icon: HomeIcon, to: 'home' },
+  { text: 'Projekty', icon: WorkOutlineIcon, to: 'projects' },
+  { text: 'O mnie', icon: FaUser, to: 'about' },
+  { text: 'Kontakt', icon: MailOutlineIcon, to: 'contact' },
 ];
 
 const paperStyles = {
   position: 'sticky',
-  top: '300px',
+  top: '280px',
   alignSelf: 'flex-start',
   height: 'fit-content',
-
   display: { xs: 'none', lg: 'flex' },
   flexDirection: 'column',
   justifyContent: 'center',
@@ -32,28 +43,56 @@ const paperStyles = {
   mt: { lg: 'calc(50vh - 200px)' },
 };
 
-const createIconButtonStyles = pageBackground => ({
-  width: { xs: 60, sm: 60, md: 60 },
-  height: { xs: 60, sm: 60, md: 60 },
-  backgroundImage: pageBackground,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed',
-  boxShadow: 'inset 0px 5px 15px rgba(0,0,0,0.4)',
-  color: 'rgba(255, 255, 255, 0.85)',
-});
+// Tworzymy animowalną wersję IconButton
+const MotionIconButton = motion(IconButton);
 
 export const NavigationSection = ({ pageBackground }) => {
-  const iconButtonStyles = createIconButtonStyles(pageBackground);
-
   return (
     <Box sx={paperStyles}>
       {navItems.map(item => (
         <Tooltip key={item.text} title={item.text} placement="left" arrow>
-          <IconButton component="a" href={item.link} sx={iconButtonStyles} aria-label={item.text}>
-            <item.icon />
-          </IconButton>
+          {/* 1. Kontener pozycjonujący dla warstw */}
+          <Box
+            onClick={() => scrollToSection(item.to)}
+            sx={{
+              position: 'relative',
+              width: 60,
+              height: 60,
+              cursor: 'pointer',
+            }}
+          >
+            {/* 2. Warstwa TŁA (statyczna, z efektem 'fixed') */}
+            <Box
+              sx={{
+                position: 'absolute',
+                inset: 0, // Rozciąga element na cały kontener
+                borderRadius: '50%',
+                backgroundImage: pageBackground,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed', // KLUCZOWY ELEMENT
+                boxShadow: 'inset 0px 5px 15px rgba(0,0,0,0.4)',
+              }}
+            />
+
+            {/* 3. Warstwa IKONY (animowana, na wierzchu) */}
+            <MotionIconButton
+              aria-label={item.text}
+              sx={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                color: 'rgba(255, 255, 255, 0.85)',
+              }}
+              whileHover={{ scale: 1.2, rotate: 10 }} // Animujemy tylko ikonę
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+            >
+              <item.icon />
+            </MotionIconButton>
+          </Box>
         </Tooltip>
       ))}
     </Box>

@@ -40,3 +40,6 @@ body {
 }
 
 /* Style dla zapobiegania problemom z przewijaniem na urządzeniach mobilnych */
+html {
+  scroll-behavior: smooth;
+}

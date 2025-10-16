@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import backgroundImg from '../../background_portfolio.png';
 import { HeroSection } from './HeroSection';
 import { NavigationSection } from './NavigationSection';
@@ -20,9 +21,10 @@ const bounce = keyframes`
 
 const HomePage = () => {
   const backgroundStyleUrl = `url(${backgroundImg})`;
-
   return (
     <>
+      <GlobalStyles styles={{ html: { scrollBehavior: 'smooth' } }} />
+
       <Box
         sx={{
           position: 'fixed',
