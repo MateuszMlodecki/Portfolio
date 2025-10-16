@@ -1,9 +1,7 @@
-import { Box, IconButton, Tooltip, useTheme } from '@mui/material';
-
+import { Box, IconButton, Tooltip } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-
 import { FaUser } from 'react-icons/fa';
 
 const navItems = [
@@ -14,18 +12,24 @@ const navItems = [
 ];
 
 const paperStyles = {
-  display: { xs: 'none', lg: 'flex' }, // ZMIANA: z 'md' na 'lg'
+  position: 'sticky',
+  top: '300px',
+  alignSelf: 'flex-start',
+  height: 'fit-content',
+
+  display: { xs: 'none', lg: 'flex' },
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: { xs: 2, md: 4 }, // md tutaj może zostać, bo wpływa tylko na odstępy
+  gap: { xs: 2, md: 4 },
   width: '90px',
   flexShrink: 0,
   borderRadius: 16,
-  p: { xs: 2, sm: 3, md: 4 }, // te również mogą zostać, bo definiują padding na różnych rozmiarach
+  p: { xs: 2, sm: 3, md: 4 },
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.85)',
   backdropFilter: 'blur(10px)',
+  mt: { lg: 'calc(50vh - 200px)' },
 };
 
 const createIconButtonStyles = pageBackground => ({
@@ -41,8 +45,7 @@ const createIconButtonStyles = pageBackground => ({
 });
 
 export const NavigationSection = ({ pageBackground }) => {
-  const theme = useTheme();
-  const iconButtonStyles = createIconButtonStyles(pageBackground, theme);
+  const iconButtonStyles = createIconButtonStyles(pageBackground);
 
   return (
     <Box sx={paperStyles}>

@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: black;
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -38,11 +37,6 @@ body {
   min-height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
-  background-color: #242424; /* Ten sam kolor co w :root */
 }
 
 /* Style dla zapobiegania problemom z przewijaniem na urządzeniach mobilnych */
-html,
-body {
-  overscroll-behavior: none;
-}

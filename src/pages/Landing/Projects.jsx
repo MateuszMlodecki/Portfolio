@@ -3,12 +3,24 @@ import { Box, Typography, Stack, Paper, Button, Link, IconButton } from '@mui/ma
 import { FaPiggyBank, FaGithub, FaIndustry } from 'react-icons/fa';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-// Importy obrazków (upewnij się, że ścieżki są poprawne)
 import BankingAppHomepage from '../../images/BankingApp/BankingAppHomepage.png';
 import BankingAppDashboard from '../../images/BankingApp/BankingAppDashboard.png';
 import AplikacjaWcenHome from '../../images/AplikacjaWycen/AplikacjaWycenHome.png';
 
-// --- DANE PROJEKTÓW (bez zmian) ---
+const glassmorphicPaperStyle = {
+  width: '100%',
+  borderRadius: 16,
+  p: { xs: 2, sm: 3, md: 4 },
+  overflow: 'hidden',
+  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+  backdropFilter: 'blur(10px)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.15)',
+  display: 'flex',
+  alignItems: 'center',
+  gap: { xs: 2, lg: 4 },
+};
+
 const projectsData = [
   {
     id: 1,
@@ -29,17 +41,11 @@ const projectsData = [
   },
 ];
 
-// --- NOWY KOMPONENT SLIDERA OBRAZKÓW ---
 const ImageSlider = ({ images, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
-    setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
-  };
+  const handleNext = () => setCurrentIndex(prev => (prev + 1) % images.length);
+  const handlePrev = () => setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
 
   if (!images || images.length === 0) return null;
 
@@ -50,11 +56,9 @@ const ImageSlider = ({ images, title }) => {
         width: '100%',
         height: '100%',
         overflow: 'hidden',
-        borderRadius: 2,
+        borderRadius: 8,
         flexShrink: 0,
-        '&:hover .nav-button': {
-          opacity: 0.7,
-        },
+        '&:hover .nav-button': { opacity: 0.7 },
       }}
     >
       <Box
@@ -110,24 +114,15 @@ const ImageSlider = ({ images, title }) => {
   );
 };
 
-// --- PRZEBUDOWANY KOMPONENT KARTY PROJEKTU ---
 const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor }) => {
   return (
     <Paper
       elevation={4}
       sx={{
-        display: 'flex',
+        ...glassmorphicPaperStyle,
         flexDirection: { xs: 'column', lg: 'row' },
-        gap: { xs: 2, lg: 4 },
-        width: '100%',
-        borderRadius: '16px',
-        p: { xs: 2, sm: 3, md: 4 },
-        overflow: 'hidden',
-        backgroundColor: 'rgba(255, 255, 255, 0.85)',
-        backdropFilter: 'blur(10px)',
       }}
     >
-      {/* Kolumna z opisem */}
       <Box sx={{ flex: '1 1 55%', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
           <Icon style={{ fontSize: 40, color: iconColor }} />
@@ -161,7 +156,6 @@ const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor })
         )}
       </Box>
 
-      {/* Kolumna ze sliderem obrazków */}
       <Box sx={{ flex: '1 1 45%', minHeight: { xs: 250, sm: 300, lg: 'auto' } }}>
         <ImageSlider images={images} title={title} />
       </Box>
@@ -169,29 +163,27 @@ const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor })
   );
 };
 
-// --- GŁÓWNY KOMPONENT SEKCJI ---
 export const Projects = () => {
   return (
     <Box
-      id="projects" // ID dla nawigacji
+      id="projects"
       sx={{
-        minHeight: '100vh',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        p: { xs: 2, md: 4 },
+        py: 8,
       }}
     >
       <Typography
         variant="h3"
         fontWeight="bold"
-        sx={{ mb: 4, color: 'white', textShadow: '1px 1px 3px black' }}
+        sx={{ mb: 6, color: 'white', textShadow: '1px 1px 3px black' }}
       >
         Moje Projekty
       </Typography>
-      <Stack direction="column" spacing={4} sx={{ width: '100%', maxWidth: 1100 }}>
+      <Stack direction="column" spacing={6} sx={{ width: '100%' }}>
         {projectsData.map(project => (
           <ProjectCard key={project.id} {...project} />
         ))}

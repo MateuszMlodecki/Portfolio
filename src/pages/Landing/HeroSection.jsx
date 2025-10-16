@@ -3,11 +3,11 @@ import profilepic from '../../images/avatar.png';
 
 const paperStyles = {
   display: 'flex',
-  flexDirection: { xs: 'column-reverse', lg: 'row' }, // ZMIANA: z 'md' na 'lg'
+  flexDirection: { xs: 'column-reverse', lg: 'row' },
   alignItems: 'center',
-  gap: { xs: 2, md: 4 }, // Można zostawić md dla responsywnych odstępów
+  gap: { xs: 2, md: 4 },
   minHeight: '400px',
-  width: '90%',
+  width: '100%',
   borderRadius: 16,
   p: { xs: 2, sm: 3, md: 4 },
   overflow: 'hidden',
@@ -33,28 +33,57 @@ const createAvatarStyles = pageBackground => ({
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundAttachment: 'fixed',
-  boxShadow: 'inset 0px 5px 15px rgba(0,0,0,0.4)',
   flexShrink: 0,
+  boxShadow: `
+    inset 8px 8px 12px rgba(0, 0, 0, 0.6), 
+    inset -8px -8px 12px rgba(255, 255, 255, 0.7)
+  `,
 });
 
 export const HeroSection = ({ pageBackground }) => {
   const avatarStyles = createAvatarStyles(pageBackground);
 
   return (
-    <Paper sx={paperStyles} elevation={4}>
-      <Avatar alt="Profile picture" src={profilepic} sx={avatarStyles} />
+    <Box
+      sx={{
+        position: 'relative',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <Typography
+        variant="h2"
+        component="h1"
+        sx={{
+          position: 'absolute',
+          top: 0,
+          transform: 'translateY(calc(-100% - 16px))',
+          fontWeight: 'bold',
+          color: 'white',
+          textShadow: '0 0 10px rgba(0, 0, 0, 0.7)',
+          textAlign: 'center',
+          fontFamily: 'Josephine Sans, sans-serif',
+        }}
+      >
+        Mateusz Młodecki
+      </Typography>
 
-      <Box sx={textContentStyles}>
-        <Typography variant="body1" sx={typographyStyles}>
-          Jestem zmotywowanym początkującym programistą, zaangażowanym w tworzenie bezpiecznych i
-          skalowalnych aplikacji. Obecnie pracuję nad nowoczesną aplikacją bankową, wykorzystując
-          <Box component="span" sx={{ fontWeight: 'bold' }}>
-            {' '}
-            React.js, TypeScript, MUI, JWT, Vitest, GitHub Pages oraz GitHub Actions.
-          </Box>{' '}
-          Nieustannie rozwijam swoje umiejętności poprzez projekty własne oraz program mentoringowy.
-        </Typography>
-      </Box>
-    </Paper>
+      <Paper sx={paperStyles} elevation={4}>
+        <Avatar alt="Profile picture" src={profilepic} sx={avatarStyles} />
+        <Box sx={textContentStyles}>
+          <Typography variant="body1" sx={typographyStyles}>
+            Jestem zmotywowanym początkującym programistą, zaangażowanym w tworzenie bezpiecznych i
+            skalowalnych aplikacji. Obecnie pracuję nad nowoczesną aplikacją bankową, wykorzystując
+            <Box component="span" sx={{ fontWeight: 'bold' }}>
+              {' '}
+              React.js, TypeScript, MUI, JWT, Vitest, GitHub Pages oraz GitHub Actions.
+            </Box>{' '}
+            Nieustannie rozwijam swoje umiejętności poprzez projekty własne oraz program
+            mentoringowy.
+          </Typography>
+        </Box>
+      </Paper>
+    </Box>
   );
 };
