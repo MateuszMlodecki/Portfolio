@@ -38,7 +38,7 @@ const paperStyles = {
   borderRadius: 16,
   p: { xs: 2, sm: 3, md: 4 },
   overflow: 'hidden',
-  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+  backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
   mt: { lg: 'calc(50vh - 200px)' },
 };

@@ -10,9 +10,9 @@ import AplikacjaWcenHome from '../../images/AplikacjaWycen/AplikacjaWycenHome.pn
 const glassmorphicPaperStyle = {
   width: '100%',
   borderRadius: 16,
-  p: { xs: 2, sm: 3, md: 4 },
+  p: { xs: 4, sm: 6, md: 8 },
   overflow: 'hidden',
-  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+  backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
   boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.15)',
@@ -26,7 +26,7 @@ const projectsData = [
     id: 1,
     title: 'Aplikacja bankowa',
     Icon: FaPiggyBank,
-    iconColor: '#690DAD',
+    iconColor: 'rgba(255, 255, 255, 0.6)',
     description: `Technologie: React.js, TypeScript, MUI, JWT, Vitest, GitHub Pages, GitHub Actions.\n\nNowoczesna i bezpieczna aplikacja bankowa, rozwijana przy użyciu React.js oraz TypeScript. Interfejs użytkownika został zbudowany z wykorzystaniem MUI, oferując responsywne i przyjazne dla użytkownika doświadczenie.\n\nAutoryzacja obsługiwana za pomocą JWT. Testowanie przez Vitest. CI/CD przez GitHub Actions.`,
     images: [BankingAppHomepage, BankingAppDashboard],
     githubUrl: 'https://github.com/MateuszMlodecki/Banking-app',
@@ -35,11 +35,16 @@ const projectsData = [
     id: 2,
     title: 'Aplikacja wycen i zarządzania procesem produkcji',
     Icon: FaIndustry,
-    iconColor: '#cf2026',
+    iconColor: 'rgba(255, 255, 255, 0.6)',
     description: `Technologie: React.js, TypeScript, Vite, Material-UI, JWT, Axios, jsPDF, XLSX, Workbox, GitHub Actions.\n\nNowoczesna aplikacja webowa do wyceny i zarządzania procesem produkcji. Zbudowana w oparciu o React.js i TypeScript, z responsywnym interfejsem na Material-UI i Framer Motion. Aplikacja wspiera autoryzację JWT, obsługę rysunków technicznych, konfigurację cen oraz pełny kalkulator kosztów produkcji z eksportem do PDF i Excel.\n\nImplementuje PWA oraz powiadomienia push. CI/CD realizowane jest poprzez GitHub Actions.`,
     images: [AplikacjaWcenHome],
   },
 ];
+
+const typographyStyles = {
+  fontFamily: 'Josephine Sans, sans-serif',
+  fontSize: 'clamp(18px, 4vw, 24px)',
+};
 
 const ImageSlider = ({ images, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,10 +59,8 @@ const ImageSlider = ({ images, title }) => {
       sx={{
         position: 'relative',
         width: '100%',
-        height: '100%',
+        paddingTop: '56.25%', // 16:9 aspect ratio
         overflow: 'hidden',
-        borderRadius: 8,
-        flexShrink: 0,
         '&:hover .nav-button': { opacity: 0.7 },
       }}
     >
@@ -66,10 +69,14 @@ const ImageSlider = ({ images, title }) => {
         src={images[currentIndex]}
         alt={`${title} screenshot ${currentIndex + 1}`}
         sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
           width: '100%',
           height: '100%',
           objectFit: 'cover',
           transition: 'transform 0.5s ease-in-out',
+          display: 'block',
         }}
       />
       {images.length > 1 && (
@@ -114,7 +121,15 @@ const ImageSlider = ({ images, title }) => {
   );
 };
 
-const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor }) => {
+const ProjectCard = ({
+  title,
+  description,
+  images,
+  githubUrl,
+  Icon,
+  iconColor,
+  pageBackground,
+}) => {
   return (
     <Paper
       elevation={4}
@@ -125,12 +140,56 @@ const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor })
     >
       <Box sx={{ flex: '1 1 55%', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-          <Icon style={{ fontSize: 40, color: iconColor }} />
-          <Typography variant="h5" fontWeight="bold">
+          {/* START: ZMIANA - Połączenie efektu "wycięcia" z efektem "naklejki" */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 64,
+              height: 64,
+              borderRadius: '50%',
+              flexShrink: 0,
+              // Style dla "wycięcia" w szkle
+              backgroundImage: pageBackground,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundAttachment: 'fixed',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.4)',
+
+              // Interakcja hover na kontenerze, która wpływa na ikonę wewnątrz
+              '&:hover svg': {
+                transform: 'scale(1.1)',
+                textShadow: '0 6px 12px rgba(0, 0, 0, 0.5)',
+              },
+            }}
+          >
+            <Icon
+              style={{
+                fontSize: 32,
+                color: iconColor,
+                // Style dla "naklejki" - czyli samej ikony
+                textShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
+                transition: 'transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
+              }}
+            />
+          </Box>
+          {/* END: ZMIANA */}
+          <Typography variant="h5" fontWeight="bold" sx={typographyStyles}>
             {title}
           </Typography>
         </Box>
-        <Typography variant="body1" sx={{ flexGrow: 1, whiteSpace: 'pre-wrap' }}>
+        <Typography
+          variant="body1"
+          sx={{
+            fontFamily: 'Josephine Sans, sans-serif',
+            fontSize: 'clamp(18px, 4vw, 24px)',
+            flexGrow: 1,
+            whiteSpace: 'pre-wrap',
+          }}
+        >
           {description}
         </Typography>
         {githubUrl && (
@@ -155,30 +214,50 @@ const ProjectCard = ({ title, description, images, githubUrl, Icon, iconColor })
           </Button>
         )}
       </Box>
-
-      <Box sx={{ flex: '1 1 45%', minHeight: { xs: 250, sm: 300, lg: 'auto' } }}>
+      <Box
+        sx={{
+          flex: '1 1 45%',
+          width: { xs: '100%', lg: 'auto' },
+          borderRadius: 8,
+          overflow: 'hidden',
+          position: 'relative',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            borderRadius: 8,
+            boxShadow:
+              'inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -6px -6px 12px rgba(0, 0, 0, 0.3)',
+            pointerEvents: 'none',
+            zIndex: 1,
+          },
+        }}
+      >
         <ImageSlider images={images} title={title} />
       </Box>
     </Paper>
   );
 };
 
-export const Projects = () => {
+export const Projects = ({ pageBackground }) => {
   return (
     <Box
-      id="projects"
       sx={{
+        marginTop: '200px',
+        marginBottom: '50px',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        py: 8,
       }}
     >
       <Stack direction="column" spacing={6} sx={{ width: '100%' }}>
         {projectsData.map(project => (
-          <ProjectCard key={project.id} {...project} />
+          <ProjectCard key={project.id} {...project} pageBackground={pageBackground} />
         ))}
       </Stack>
     </Box>

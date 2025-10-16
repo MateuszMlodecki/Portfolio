@@ -1,22 +1,20 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import backgroundImg from '../../background_portfolio.png';
 import { HeroSection } from './HeroSection';
 import { NavigationSection } from './NavigationSection';
 import { Projects } from './Projects';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { keyframes } from '@mui/system';
-
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+import { AboutMe } from './AboutMe';
+import { SectionWrapper } from './SectionWrapper'; // Importujemy nowy komponent
+import { Contact } from './Contact';
+const scrollToSection = id => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-`;
+};
 
 const HomePage = () => {
   const backgroundStyleUrl = `url(${backgroundImg})`;
@@ -60,52 +58,42 @@ const HomePage = () => {
             width: '100%',
           }}
         >
-          <Box
+          <SectionWrapper
             id="home"
-            sx={{
-              minHeight: '100vh',
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative', // <-- KROK 1: Dodaj to, aby stać się kontekstem pozycjonowania
-            }}
+            title="Mateusz Młodecki"
+            scrollToId="projects"
+            scrollToText="Zobacz moje projekty"
+            scrollToSection={scrollToSection}
           >
             <HeroSection pageBackground={backgroundStyleUrl} />
-
-            {/* KROK 2: Zaktualizuj stylizację wskaźnika "Przewiń w dół" */}
-            <Box
-              sx={{
-                position: 'absolute', // Wyjmij z normalnego przepływu
-                bottom: 40, // Umieść 40px od dolnej krawędzi kontenera "home"
-                left: '50%', // Wyśrodkuj w poziomie
-                transform: 'translateX(-50%)', // Dokładne wyśrodkowanie w poziomie
-                display: { xs: 'flex', lg: 'flex' },
-                flexDirection: 'column',
-                alignItems: 'center',
-                color: 'white',
-                mx: 'auto',
-                textShadow: '0 0 5px black',
-                animation: `${bounce} 2s infinite`,
-                // mt: 4 już nie jest potrzebne
-              }}
-            >
-              <Box>Przewiń w dół</Box>
-              <ArrowDownwardIcon />
-            </Box>
-          </Box>
-
-          <Box sx={{ width: '100%' }}>
-            <Typography
-              variant="h3"
-              fontWeight="bold"
-              sx={{ mb: 6, color: 'white', textShadow: '1px 1px 3px black' }}
-            >
-              Moje Projekty
-            </Typography>
-            <Projects />
-          </Box>
+          </SectionWrapper>
+          <SectionWrapper
+            id="projects"
+            title="Moje Projekty"
+            scrollToId="about"
+            scrollToText="Dowiedz się więcej o mnie"
+            scrollToSection={scrollToSection}
+          >
+            <Projects pageBackground={backgroundStyleUrl} />
+          </SectionWrapper>
+          <SectionWrapper
+            id="about"
+            title="O mnie"
+            scrollToId="contact" // Opcjonalnie: strzałka na końcu wraca na samą górę
+            scrollToText="Skontaktuj się ze mną"
+            scrollToSection={scrollToSection}
+          >
+            <AboutMe pageBackground={backgroundStyleUrl} />
+          </SectionWrapper>{' '}
+          <SectionWrapper
+            id="contact"
+            title="Kontakt"
+            scrollToId="contact" // Opcjonalnie: strzałka na końcu wraca na samą górę
+            scrollToText="Skontaktuj się ze mną"
+            scrollToSection={scrollToSection}
+          >
+            <Contact pageBackground={backgroundStyleUrl} />
+          </SectionWrapper>
         </Box>
 
         <NavigationSection pageBackground={backgroundStyleUrl} />
