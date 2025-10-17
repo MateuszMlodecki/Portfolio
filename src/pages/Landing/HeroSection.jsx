@@ -43,7 +43,6 @@ const createAvatarStyles = pageBackground => ({
 export const HeroSection = ({ pageBackground }) => {
   const avatarStyles = createAvatarStyles(pageBackground);
 
-  // Komponent zwraca już tylko samą "kartę" z treścią
   return (
     <Paper sx={paperStyles} elevation={4}>
       <Avatar alt="Profile picture" src={profilepic} sx={avatarStyles} />

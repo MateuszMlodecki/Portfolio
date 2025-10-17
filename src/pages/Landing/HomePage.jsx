@@ -4,7 +4,7 @@ import { HeroSection } from './HeroSection';
 import { NavigationSection } from './NavigationSection';
 import { Projects } from './Projects';
 import { AboutMe } from './AboutMe';
-import { SectionWrapper } from './SectionWrapper'; // Importujemy nowy komponent
+import { SectionWrapper } from './SectionWrapper';
 import { Contact } from './Contact';
 const scrollToSection = id => {
   const element = document.getElementById(id);
@@ -79,7 +79,7 @@ const HomePage = () => {
           <SectionWrapper
             id="about"
             title="O mnie"
-            scrollToId="contact" // Opcjonalnie: strzałka na końcu wraca na samą górę
+            scrollToId="contact"
             scrollToText="Skontaktuj się ze mną"
             scrollToSection={scrollToSection}
           >
@@ -88,7 +88,7 @@ const HomePage = () => {
           <SectionWrapper
             id="contact"
             title="Kontakt"
-            scrollToId="home" // Opcjonalnie: strzałka na końcu wraca na samą górę
+            scrollToId="home"
             scrollToText="Wróć na początek"
             scrollToSection={scrollToSection}
           >

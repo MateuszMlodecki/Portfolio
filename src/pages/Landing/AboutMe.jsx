@@ -1,7 +1,6 @@
 import { Box, Typography, Paper, Stack, Button } from '@mui/material';
 import { FaFilePdf } from 'react-icons/fa';
 import DownloadIcon from '@mui/icons-material/Download';
-// --- Logika CV (bez zmian) ---
 const CvPolski =
   'https://drive.google.com/file/d/14tBivoGIPO-gKy7KntfXhJlzyRoQpHRl/view?usp=drive_link';
 const CvEnglish =
@@ -11,7 +10,6 @@ const handleOpen = language => {
   const path = language === 'pl' ? CvPolski : CvEnglish;
   window.open(path, '_blank');
 };
-// ----------------------------
 
 const paperStyles = {
   display: 'flex',
@@ -38,8 +36,6 @@ const typographyStyles = {
   lineHeight: 1.6,
 };
 
-// --- ZMIANA: Usunięcie `transform` z hovera na karcie ---
-// Zamiast tego dodajemy subtelny cień dla lepszego feedbacku
 const cvCardStyle = {
   flex: 1,
   p: 3,
@@ -48,10 +44,8 @@ const cvCardStyle = {
   alignItems: 'center',
   textAlign: 'center',
   borderRadius: '12px',
-  // Dodajemy bazowy cień i transition dla niego
 };
 
-// --- Style dla ikony (bez zmian) ---
 const iconContainerStyle = {
   position: 'relative',
   width: 80,
@@ -78,7 +72,7 @@ const iconLayerStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  cursor: 'pointer', // Dodajemy kursor, aby zachęcić do interakcji
+  cursor: 'pointer',
   '&:hover svg': {
     transform: 'scale(1.15) rotate(5deg)',
     textShadow: '0 6px 12px rgba(0, 0, 0, 0.5)',
@@ -90,16 +84,14 @@ const iconStickerStyle = {
   color: 'rgba(255, 255, 255, 0.6)',
   textShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
   transition: 'transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
-  pointerEvents: 'none', // Zapobiega "kradzieży" hovera przez samą ikonę z warstwy nadrzędnej
+  pointerEvents: 'none',
 };
-// ------------------------------------
 
 export const AboutMe = ({ pageBackground }) => {
   const backgroundLayerStyle = createBackgroundLayerStyle(pageBackground);
 
   return (
     <Paper sx={paperStyles} elevation={4}>
-      {/* --- Sekcja tekstowa "O mnie" (bez zmian) --- */}
       <Box sx={textContentStyles}>
         <Typography variant="body1" sx={typographyStyles}>
           W swojej pracy stawiam na <strong>czysty kod</strong>,{' '}
@@ -124,7 +116,6 @@ export const AboutMe = ({ pageBackground }) => {
         </Typography>
       </Box>
 
-      {/* --- Sekcja CV (logika bez zmian, style zaktualizowane) --- */}
       <Box sx={{ pt: 2 }}>
         <Typography
           variant="h5"
@@ -139,7 +130,6 @@ export const AboutMe = ({ pageBackground }) => {
           spacing={3}
           sx={{ justifyContent: 'center' }}
         >
-          {/* Karta CV - Wersja Polska */}
           <Box sx={cvCardStyle}>
             <Box onClick={() => handleOpen('pl')} sx={iconContainerStyle}>
               <Box sx={backgroundLayerStyle} />
@@ -169,7 +159,6 @@ export const AboutMe = ({ pageBackground }) => {
             </Button>
           </Box>
 
-          {/* Karta CV - Wersja Angielska */}
           <Box sx={cvCardStyle}>
             <Box onClick={() => handleOpen('en')} sx={iconContainerStyle}>
               <Box sx={backgroundLayerStyle} />

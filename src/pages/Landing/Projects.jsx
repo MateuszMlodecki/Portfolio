@@ -59,7 +59,7 @@ const ImageSlider = ({ images, title }) => {
       sx={{
         position: 'relative',
         width: '100%',
-        paddingTop: '56.25%', // 16:9 aspect ratio
+        paddingTop: '56.25%',
         overflow: 'hidden',
         '&:hover .nav-button': { opacity: 0.7 },
       }}
@@ -140,7 +140,6 @@ const ProjectCard = ({
     >
       <Box sx={{ flex: '1 1 55%', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-          {/* START: ZMIANA - Połączenie efektu "wycięcia" z efektem "naklejki" */}
           <Box
             sx={{
               display: 'flex',
@@ -150,7 +149,6 @@ const ProjectCard = ({
               height: 64,
               borderRadius: '50%',
               flexShrink: 0,
-              // Style dla "wycięcia" w szkle
               backgroundImage: pageBackground,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -159,7 +157,6 @@ const ProjectCard = ({
               border: '1px solid rgba(255, 255, 255, 0.2)',
               boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.4)',
 
-              // Interakcja hover na kontenerze, która wpływa na ikonę wewnątrz
               '&:hover svg': {
                 transform: 'scale(1.1)',
                 textShadow: '0 6px 12px rgba(0, 0, 0, 0.5)',
@@ -170,13 +167,11 @@ const ProjectCard = ({
               style={{
                 fontSize: 32,
                 color: iconColor,
-                // Style dla "naklejki" - czyli samej ikony
                 textShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
                 transition: 'transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
               }}
             />
           </Box>
-          {/* END: ZMIANA */}
           <Typography variant="h5" fontWeight="bold" sx={typographyStyles}>
             {title}
           </Typography>

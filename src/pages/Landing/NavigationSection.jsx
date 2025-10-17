@@ -5,7 +5,6 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-// Funkcja do płynnego przewijania do sekcji (bez zmian)
 const scrollToSection = id => {
   const element = document.getElementById(id);
   if (element) {
@@ -43,7 +42,6 @@ const paperStyles = {
   mt: { lg: 'calc(50vh - 200px)' },
 };
 
-// Tworzymy animowalną wersję IconButton
 const MotionIconButton = motion.create(IconButton);
 
 export const NavigationSection = ({ pageBackground }) => {
@@ -51,7 +49,6 @@ export const NavigationSection = ({ pageBackground }) => {
     <Box sx={paperStyles}>
       {navItems.map(item => (
         <Tooltip key={item.text} title={item.text} placement="left" arrow>
-          {/* 1. Kontener pozycjonujący dla warstw */}
           <Box
             onClick={() => scrollToSection(item.to)}
             sx={{
@@ -61,22 +58,20 @@ export const NavigationSection = ({ pageBackground }) => {
               cursor: 'pointer',
             }}
           >
-            {/* 2. Warstwa TŁA (statyczna, z efektem 'fixed') */}
             <Box
               sx={{
                 position: 'absolute',
-                inset: 0, // Rozciąga element na cały kontener
+                inset: 0,
                 borderRadius: '50%',
                 backgroundImage: pageBackground,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed', // KLUCZOWY ELEMENT
+                backgroundAttachment: 'fixed',
                 boxShadow: 'inset 0px 5px 15px rgba(0,0,0,0.4)',
               }}
             />
 
-            {/* 3. Warstwa IKONY (animowana, na wierzchu) */}
             <MotionIconButton
               aria-label={item.text}
               sx={{
@@ -86,7 +81,7 @@ export const NavigationSection = ({ pageBackground }) => {
                 height: '100%',
                 color: 'rgba(255, 255, 255, 0.85)',
               }}
-              whileHover={{ scale: 1.2, rotate: 10 }} // Animujemy tylko ikonę
+              whileHover={{ scale: 1.2, rotate: 10 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 15 }}
             >

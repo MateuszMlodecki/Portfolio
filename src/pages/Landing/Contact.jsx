@@ -4,7 +4,6 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-// --- DANE KONTAKTOWE (Refaktoryzacja dla czystszego kodu) ---
 const contactData = [
   {
     href: 'mailto:mateuszmlodecki.it@gmail.com',
@@ -26,6 +25,7 @@ const contactData = [
     href: 'https://www.linkedin.com/in/mateusz-m%C5%82odecki-621104328/',
     icon: LinkedInIcon,
     label: 'LinkedIn',
+    info: 'linkedin.com/in/mateusz-młodecki-621104328/',
     iconColor: 'rgba(255, 255, 255, 0.6)',
     buttonText: 'Odwiedź',
   },
@@ -38,8 +38,6 @@ const contactData = [
     buttonText: 'Napisz',
   },
 ];
-
-// --- STYLE ---
 
 const mainPaperStyles = {
   marginTop: '80px',
@@ -54,14 +52,10 @@ const mainPaperStyles = {
   borderRadius: { xs: 0, sm: 16 },
   p: { xs: 3, sm: 4, md: 6 },
   overflow: 'hidden',
-  // --- POPRAWKA TUTAJ ---
-  // Zmniejszono przezroczystość tła głównego kontenera, aby efekt "szkła" był widoczny.
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
 };
 
-// Zaktualizowany styl dla kart kontaktowych, dopasowany do designu
-// Wartość `backgroundColor` może pozostać taka sama lub być lekko dostosowana dla lepszego efektu
 const contactCardStyle = {
   p: 3,
   display: 'flex',
@@ -69,11 +63,10 @@ const contactCardStyle = {
   alignItems: 'center',
   textAlign: 'center',
   borderRadius: 8,
-  backgroundColor: 'rgba(255, 255, 255, 0.05)', // Można tu eksperymentować (np. 0.4 lub 0.5)
+  backgroundColor: 'rgba(255, 255, 255, 0.1)',
   backdropFilter: 'blur(5px)',
-  border: '1px solid rgba(255, 255, 255, 0.3)',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-  transition: 'box-shadow 0.3s ease-in-out',
+  border: '1px solid rgba(255, 255, 255, 0.18)',
+  boxShadow: 'inset 4px 4px 8px rgba(0,0,0,0.25), inset -4px -4px 8px rgba(255,255,255,0.4)',
   flex: {
     xs: '1 1 100%',
     sm: '1 1 calc(50% - 16px)',
@@ -86,12 +79,8 @@ const contactCardStyle = {
     xs: '100%',
     sm: '380px',
   },
-  '&:hover': {
-    boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
-  },
 };
 
-// --- Style dla "wyciętych" ikon ---
 const iconContainerStyle = {
   position: 'relative',
   width: 80,
@@ -132,15 +121,12 @@ const createIconStickerStyle = iconColor => ({
   pointerEvents: 'none',
 });
 
-// --- KOMPONENTY ---
-
 const ContactItem = ({ href, icon: Icon, label, info, iconColor, buttonText, pageBackground }) => {
   const backgroundLayerStyle = createBackgroundLayerStyle(pageBackground);
   const iconStickerStyle = createIconStickerStyle(iconColor);
 
   return (
     <Paper elevation={0} sx={contactCardStyle}>
-      {/* Zaktualizowana struktura ikony */}
       <Box sx={iconContainerStyle}>
         <Box sx={backgroundLayerStyle} />
         <Box sx={iconLayerStyle}>
@@ -172,7 +158,6 @@ const ContactItem = ({ href, icon: Icon, label, info, iconColor, buttonText, pag
         </Typography>
       )}
 
-      {/* Placeholder dla wyrównania przycisków, gdy nie ma info */}
       {!info && <Box sx={{ minHeight: '48px', mb: 2 }} />}
 
       <Button
@@ -210,7 +195,6 @@ export const Contact = ({ pageBackground }) => {
         Skontaktuj się ze mną
       </Typography>
 
-      {/* Kontener Flexbox dla siatki */}
       <Box
         sx={{
           display: 'flex',

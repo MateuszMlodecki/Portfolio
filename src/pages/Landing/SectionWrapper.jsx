@@ -33,16 +33,15 @@ export const SectionWrapper = ({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        py: 12, // Dodajemy padding, aby tytuł i strzałka nie nachodziły na treść
+        py: 12,
       }}
     >
-      {/* Nagłówek sekcji */}
       <Typography
         variant="h2"
         component="h1"
         sx={{
           position: 'absolute',
-          top: { xs: 24, md: 40 }, // Ustawienie pozycji nagłówka
+          top: { xs: 24, md: 40 },
           fontWeight: 'bold',
           color: 'white',
           textShadow: '0 0 10px rgba(0, 0, 0, 0.7)',
@@ -52,11 +51,8 @@ export const SectionWrapper = ({
       >
         {title}
       </Typography>
-
-      {/* Główna treść sekcji (np. karta projektu, info o mnie) */}
       {children}
 
-      {/* Strzałka do przewijania do następnej sekcji (renderowana warunkowo) */}
       {scrollToId && (
         <Box
           sx={{
