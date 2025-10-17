@@ -49,7 +49,7 @@ const mainPaperStyles = {
   gap: 4,
   width: '100%',
   minHeight: '100vh',
-  borderRadius: { xs: 0, sm: 16 },
+  borderRadius: 16,
   p: { xs: 3, sm: 4, md: 6 },
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
@@ -97,7 +97,7 @@ const createBackgroundLayerStyle = pageBackground => ({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed',
+  backgroundAttachment: { xs: 'scroll', md: 'fixed' },
   boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.4)',
 });
 

@@ -39,7 +39,7 @@ const paperStyles = {
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
-  mt: { lg: 'calc(50vh - 200px)' },
+  mt: { lg: 'calc(50vh - 150px)' },
 };
 
 const MotionIconButton = motion.create(IconButton);

@@ -53,7 +53,7 @@ const HomePage = () => {
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            mx: 'auto',
             gap: 4,
             width: '100%',
           }}

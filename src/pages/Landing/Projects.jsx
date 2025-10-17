@@ -153,7 +153,7 @@ const ProjectCard = ({
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed',
+              backgroundAttachment: { xs: 'scroll', md: 'fixed' },
               border: '1px solid rgba(255, 255, 255, 0.2)',
               boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.4)',
 
@@ -241,7 +241,7 @@ export const Projects = ({ pageBackground }) => {
   return (
     <Box
       sx={{
-        marginTop: '120px',
+        marginTop: '80px',
         marginBottom: '50px',
         width: '100%',
         display: 'flex',

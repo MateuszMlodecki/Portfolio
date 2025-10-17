@@ -9,10 +9,11 @@ const paperStyles = {
   minHeight: '400px',
   width: '100%',
   borderRadius: 16,
-  p: { xs: 2, sm: 3, md: 4 },
+  p: { xs: 4, sm: 6, md: 8 },
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
+  marginTop: { xs: '90px' },
 };
 
 const textContentStyles = {
@@ -32,7 +33,7 @@ const createAvatarStyles = pageBackground => ({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed',
+  backgroundAttachment: { xs: 'scroll', md: 'fixed' },
   flexShrink: 0,
   boxShadow: `
     inset 6px 6px 10px rgba(0, 0, 0, 0.5), 
