@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.9b0d99c9.css",
-    "main.js": "/Portfolio/static/js/main.ec401a5b.js",
-    "static/js/453.1407b060.chunk.js": "/Portfolio/static/js/453.1407b060.chunk.js",
+    "main.css": "/Portfolio/static/css/main.4f71155a.css",
+    "main.js": "/Portfolio/static/js/main.06f70501.js",
+    "static/js/453.3ecabe31.chunk.js": "/Portfolio/static/js/453.3ecabe31.chunk.js",
     "static/media/avatar.png": "/Portfolio/static/media/avatar.fd156286c639faa80a57.png",
     "static/media/AplikacjaWycenHome.png": "/Portfolio/static/media/AplikacjaWycenHome.6112ea3edaca8bbce600.png",
+    "static/media/background_portfolio.png": "/Portfolio/static/media/background_portfolio.aa56758515d7266d587b.png",
     "static/media/BankingAppDashboard.png": "/Portfolio/static/media/BankingAppDashboard.1bf5c8427450331382b1.png",
     "static/media/BankingAppHomepage.png": "/Portfolio/static/media/BankingAppHomepage.bbc60195bddd810aee48.png",
-    "static/media/Logo.png": "/Portfolio/static/media/Logo.955fe3352d86740a1f57.png",
     "index.html": "/Portfolio/index.html",
-    "main.9b0d99c9.css.map": "/Portfolio/static/css/main.9b0d99c9.css.map",
-    "main.ec401a5b.js.map": "/Portfolio/static/js/main.ec401a5b.js.map",
-    "453.1407b060.chunk.js.map": "/Portfolio/static/js/453.1407b060.chunk.js.map"
+    "main.4f71155a.css.map": "/Portfolio/static/css/main.4f71155a.css.map",
+    "main.06f70501.js.map": "/Portfolio/static/js/main.06f70501.js.map",
+    "453.3ecabe31.chunk.js.map": "/Portfolio/static/js/453.3ecabe31.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b0d99c9.css",
-    "static/js/main.ec401a5b.js"
+    "static/css/main.4f71155a.css",
+    "static/js/main.06f70501.js"
   ]
 }
