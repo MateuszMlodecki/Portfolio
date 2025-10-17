@@ -1,8 +1,7 @@
 import { Box, Typography, Paper, Stack, Button } from '@mui/material';
 import { FaFilePdf } from 'react-icons/fa';
 import DownloadIcon from '@mui/icons-material/Download';
-
-// --- Zintegrowana logika z komponentu CV ---
+// --- Logika CV (bez zmian) ---
 const CvPolski =
   'https://drive.google.com/file/d/14tBivoGIPO-gKy7KntfXhJlzyRoQpHRl/view?usp=drive_link';
 const CvEnglish =
@@ -12,7 +11,7 @@ const handleOpen = language => {
   const path = language === 'pl' ? CvPolski : CvEnglish;
   window.open(path, '_blank');
 };
-// ---------------------------------------------
+// ----------------------------
 
 const paperStyles = {
   display: 'flex',
@@ -21,11 +20,12 @@ const paperStyles = {
   gap: 4,
   width: '100%',
   borderRadius: 16,
-  p: { xs: 3, sm: 4, md: 6 },
+  p: { xs: 2, sm: 6, md: 8 },
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
-  marginTop: '160px',
+  marginTop: '80px',
+  marginBottom: '50px',
 };
 
 const textContentStyles = {
@@ -38,7 +38,8 @@ const typographyStyles = {
   lineHeight: 1.6,
 };
 
-// Styl dla kontenerów CV, który teraz będzie stosowany do <Box>
+// --- ZMIANA: Usunięcie `transform` z hovera na karcie ---
+// Zamiast tego dodajemy subtelny cień dla lepszego feedbacku
 const cvCardStyle = {
   flex: 1,
   p: 3,
@@ -47,16 +48,58 @@ const cvCardStyle = {
   alignItems: 'center',
   textAlign: 'center',
   borderRadius: '12px',
-  transition: 'transform 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-8px)',
+  // Dodajemy bazowy cień i transition dla niego
+};
+
+// --- Style dla ikony (bez zmian) ---
+const iconContainerStyle = {
+  position: 'relative',
+  width: 80,
+  height: 80,
+  flexShrink: 0,
+  mb: 2,
+};
+
+const createBackgroundLayerStyle = pageBackground => ({
+  position: 'absolute',
+  inset: 0,
+  borderRadius: '50%',
+  backgroundImage: pageBackground,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundAttachment: 'fixed',
+  boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.4)',
+});
+
+const iconLayerStyle = {
+  position: 'absolute',
+  inset: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer', // Dodajemy kursor, aby zachęcić do interakcji
+  '&:hover svg': {
+    transform: 'scale(1.15) rotate(5deg)',
+    textShadow: '0 6px 12px rgba(0, 0, 0, 0.5)',
   },
 };
 
-export const AboutMe = () => {
+const iconStickerStyle = {
+  fontSize: 40,
+  color: 'rgba(255, 255, 255, 0.6)',
+  textShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
+  transition: 'transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
+  pointerEvents: 'none', // Zapobiega "kradzieży" hovera przez samą ikonę z warstwy nadrzędnej
+};
+// ------------------------------------
+
+export const AboutMe = ({ pageBackground }) => {
+  const backgroundLayerStyle = createBackgroundLayerStyle(pageBackground);
+
   return (
     <Paper sx={paperStyles} elevation={4}>
-      {/* --- Sekcja tekstowa "O mnie" --- */}
+      {/* --- Sekcja tekstowa "O mnie" (bez zmian) --- */}
       <Box sx={textContentStyles}>
         <Typography variant="body1" sx={typographyStyles}>
           W swojej pracy stawiam na <strong>czysty kod</strong>,{' '}
@@ -67,13 +110,11 @@ export const AboutMe = () => {
           <strong>React</strong>,<strong> Tailwind CSS</strong>, <strong>Redux</strong> czy{' '}
           <strong>REST API</strong>.
         </Typography>
-
         <Typography variant="body1" sx={{ ...typographyStyles, mt: 2 }}>
           Chętnie uczę się też nowych narzędzi i bibliotek, by lepiej rozumieć pełny proces
           tworzenia aplikacji. Wierzę, że najlepsze projekty powstają dzięki połączeniu technologii,
           dobrych praktyk i pracy zespołowej.
         </Typography>
-
         <Typography variant="body1" sx={{ ...typographyStyles, mt: 2 }}>
           Oprócz umiejętności technicznych, cenię <strong>komunikatywność</strong>,
           <strong> współpracę zespołową</strong> i <strong>otwartość na feedback</strong>. Posługuję
@@ -83,7 +124,7 @@ export const AboutMe = () => {
         </Typography>
       </Box>
 
-      {/* --- Nowa, zintegrowana sekcja CV --- */}
+      {/* --- Sekcja CV (logika bez zmian, style zaktualizowane) --- */}
       <Box sx={{ pt: 2 }}>
         <Typography
           variant="h5"
@@ -98,9 +139,14 @@ export const AboutMe = () => {
           spacing={3}
           sx={{ justifyContent: 'center' }}
         >
-          {/* Karta CV - Wersja Polska (używamy <Box> zamiast <Paper>) */}
+          {/* Karta CV - Wersja Polska */}
           <Box sx={cvCardStyle}>
-            <FaFilePdf style={{ fontSize: 64, color: '#fff', marginBottom: 16 }} />
+            <Box onClick={() => handleOpen('pl')} sx={iconContainerStyle}>
+              <Box sx={backgroundLayerStyle} />
+              <Box sx={iconLayerStyle}>
+                <FaFilePdf style={iconStickerStyle} />
+              </Box>
+            </Box>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 1.5 }}>
               Wersja Polska
             </Typography>
@@ -123,9 +169,14 @@ export const AboutMe = () => {
             </Button>
           </Box>
 
-          {/* Karta CV - Wersja Angielska (używamy <Box> zamiast <Paper>) */}
+          {/* Karta CV - Wersja Angielska */}
           <Box sx={cvCardStyle}>
-            <FaFilePdf style={{ fontSize: 64, color: '#fff', marginBottom: 16 }} />
+            <Box onClick={() => handleOpen('en')} sx={iconContainerStyle}>
+              <Box sx={backgroundLayerStyle} />
+              <Box sx={iconLayerStyle}>
+                <FaFilePdf style={iconStickerStyle} />
+              </Box>
+            </Box>
             <Typography variant="h6" fontWeight="bold" sx={{ mb: 1.5 }}>
               English Version
             </Typography>

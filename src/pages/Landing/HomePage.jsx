@@ -88,8 +88,8 @@ const HomePage = () => {
           <SectionWrapper
             id="contact"
             title="Kontakt"
-            scrollToId="contact" // Opcjonalnie: strzałka na końcu wraca na samą górę
-            scrollToText="Skontaktuj się ze mną"
+            scrollToId="home" // Opcjonalnie: strzałka na końcu wraca na samą górę
+            scrollToText="Wróć na początek"
             scrollToSection={scrollToSection}
           >
             <Contact pageBackground={backgroundStyleUrl} />
