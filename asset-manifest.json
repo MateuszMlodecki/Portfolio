@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.4f71155a.css",
-    "main.js": "/Portfolio/static/js/main.d33c69d4.js",
+    "main.js": "/Portfolio/static/js/main.f3c7d29f.js",
     "static/js/453.3ecabe31.chunk.js": "/Portfolio/static/js/453.3ecabe31.chunk.js",
     "static/media/avatar.png": "/Portfolio/static/media/avatar.fd156286c639faa80a57.png",
     "static/media/AplikacjaWycenHome.png": "/Portfolio/static/media/AplikacjaWycenHome.6112ea3edaca8bbce600.png",
@@ -10,11 +10,11 @@
     "static/media/BankingAppHomepage.png": "/Portfolio/static/media/BankingAppHomepage.bbc60195bddd810aee48.png",
     "index.html": "/Portfolio/index.html",
     "main.4f71155a.css.map": "/Portfolio/static/css/main.4f71155a.css.map",
-    "main.d33c69d4.js.map": "/Portfolio/static/js/main.d33c69d4.js.map",
+    "main.f3c7d29f.js.map": "/Portfolio/static/js/main.f3c7d29f.js.map",
     "453.3ecabe31.chunk.js.map": "/Portfolio/static/js/453.3ecabe31.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4f71155a.css",
-    "static/js/main.d33c69d4.js"
+    "static/js/main.f3c7d29f.js"
   ]
 }
