@@ -14,6 +14,7 @@ const paperStyles = {
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
   marginTop: { xs: '90px' },
+  marginBottom: { xs: '40px', xl: '0px' },
 };
 
 const textContentStyles = {

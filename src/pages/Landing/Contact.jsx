@@ -41,7 +41,7 @@ const contactData = [
 
 const mainPaperStyles = {
   marginTop: '80px',
-  marginBottom: '20px',
+  marginBottom: '30px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

@@ -242,7 +242,7 @@ export const Projects = ({ pageBackground }) => {
     <Box
       sx={{
         marginTop: '80px',
-        marginBottom: '50px',
+        marginBottom: '40px',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',

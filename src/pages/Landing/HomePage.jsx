@@ -6,6 +6,7 @@ import { Projects } from './Projects';
 import { AboutMe } from './AboutMe';
 import { SectionWrapper } from './SectionWrapper';
 import { Contact } from './Contact';
+import { MoveToProjectsButton } from './MoveToProjectsButton';
 const scrollToSection = id => {
   const element = document.getElementById(id);
   if (element) {
@@ -75,6 +76,7 @@ const HomePage = () => {
             scrollToSection={scrollToSection}
           >
             <Projects pageBackground={backgroundStyleUrl} />
+            <MoveToProjectsButton />
           </SectionWrapper>
           <SectionWrapper
             id="about"
