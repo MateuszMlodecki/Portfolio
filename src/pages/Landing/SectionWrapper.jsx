@@ -1,5 +1,8 @@
+// SectionWrapper.js
+
 import { Box, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import SwipeDownIcon from '@mui/icons-material/SwipeDown';
+import SwipeUpIcon from '@mui/icons-material/SwipeUp';
 import { keyframes } from '@mui/system';
 
 const bounce = keyframes`
@@ -40,12 +43,13 @@ export const SectionWrapper = ({
         variant="h2"
         component="h1"
         sx={{
-          position: 'absolute',
+          textAlign: { xs: 'center' },
+          mx: 'auto',
+          marginTop: '-20px',
           top: { xs: 24, md: 40 },
           fontWeight: 'bold',
           color: 'white',
           textShadow: '0 0 10px rgba(0, 0, 0, 0.7)',
-          textAlign: 'center',
           fontFamily: 'Josephine Sans, sans-serif',
         }}
       >
@@ -69,7 +73,12 @@ export const SectionWrapper = ({
           onClick={() => scrollToSection(scrollToId)}
         >
           <Box>{scrollToText}</Box>
-          <ArrowDownwardIcon />
+          {/* Warunkowe renderowanie ikony z nowym rozmiarem */}
+          {scrollToId === 'home' ? (
+            <SwipeUpIcon sx={{ fontSize: 40 }} />
+          ) : (
+            <SwipeDownIcon sx={{ fontSize: 40 }} />
+          )}
         </Box>
       )}
     </Box>

@@ -39,7 +39,27 @@ const paperStyles = {
   overflow: 'hidden',
   backgroundColor: 'rgba(255, 255, 255, 0.6)',
   backdropFilter: 'blur(10px)',
-  mt: { lg: 'calc(50vh - 200px)' },
+  mt: { lg: 'calc(50vh - 150px)' },
+};
+
+const tooltipStyles = {
+  tooltip: {
+    sx: {
+      backgroundColor: 'rgba(255, 255, 255, 0.6)',
+      backdropFilter: 'blur(10px)',
+      color: 'black',
+      fontWeight: 600,
+      borderRadius: 2,
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      p: '8px 16px',
+      fontSize: '0.875rem',
+    },
+  },
+  arrow: {
+    sx: {
+      color: 'rgba(255, 255, 255, 0.6)',
+    },
+  },
 };
 
 const MotionIconButton = motion.create(IconButton);
@@ -48,7 +68,13 @@ export const NavigationSection = ({ pageBackground }) => {
   return (
     <Box sx={paperStyles}>
       {navItems.map(item => (
-        <Tooltip key={item.text} title={item.text} placement="left" arrow>
+        <Tooltip
+          key={item.text}
+          title={item.text}
+          placement="left"
+          arrow
+          componentsProps={tooltipStyles}
+        >
           <Box
             onClick={() => scrollToSection(item.to)}
             sx={{
